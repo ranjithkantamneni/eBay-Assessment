@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="app.js"></script>
+    <style>
+        .main {
+            margin-top: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div class="container main" ng-controller="MainCtrl">
+        <div class = "row">
+            <div class = "col-md-6">CPU Usage:<input type="checkbox" ng-model="showCPUChart"></div>
+            <div class = "col-md-6">Memory Usage:<input type="checkbox" ng-model="showMemoryChart"></div>
+        </div>
+        <button class="btn btn-primary" ng-click="startLoading()">Start</button>
+        <button class="btn btn-primary" ng-click="stopLoading()">Stop</button>
+        
+        <div class="row">
+            <div class="col-md-6" ng-if="showCPUChart">
+                <chart title="CPU Usage" data="cpuData"></chart>
+            </div>
+            <div class="col-md-6" ng-if="showMemoryChart">
+                <chart title="Memory Usage" data="memoryData"></chart>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
